@@ -5,10 +5,14 @@ package com.github.scribejava.apis.service;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.scribejava.apis.OAuth2Constants;
 import com.github.scribejava.apis.SinaWeiboApi20;
 import com.github.scribejava.core.builder.ServiceBuilder;
+import com.github.scribejava.core.exceptions.OAuthException;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.model.Response;
@@ -33,6 +37,24 @@ public class WeiXinService {
         oauthService = new ServiceBuilder(null).apiKey(apiKey).apiSecret(apiSecret)
                 .scope(scope).callback(callbackUrl).build(SinaWeiboApi20.instance());
     }
+    
+
+    private static Pattern openIdPattern = Pattern.compile("\"openid\":\\s*\"(\\S*?)\"");
+ 
+    /**
+     * 获取account_token的http请求参数添加
+     */
+ 	public void signRequest(OAuth2AccessToken accessToken, OAuthRequest request) {
+ 		String response = accessToken.getRawResponse();
+ 		Matcher matcher = openIdPattern.matcher(response);
+ 		if (matcher.find()) {
+ 			request.addQuerystringParameter(OAuth2Constants.OPENID, matcher.group(1));
+ 		} else {
+ 			throw new OAuthException("接口返回数据 miss openid: " + response);
+ 		}
+ 		request.addQuerystringParameter("dataType", "json");
+ 	}
+ 	
     /**
      * 取得 WeiBo 登陆页面的 URL，例如
      * https://graph.WeiBo.com/oauth2.0/authorize?response_type=code&client_id=101292272&

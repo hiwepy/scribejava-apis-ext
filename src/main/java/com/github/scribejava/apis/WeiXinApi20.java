@@ -3,15 +3,21 @@
  */
 package com.github.scribejava.apis;
 
-import com.github.scribejava.apis.service.ExtOAuth20Service;
 import com.github.scribejava.core.builder.api.DefaultApi20;
-import com.github.scribejava.core.model.OAuthConfig;
-import com.github.scribejava.core.oauth.OAuth20Service;
+import com.github.scribejava.core.builder.api.OAuth2SignatureType;
+import com.github.scribejava.core.extractors.OAuth2AccessTokenExtractor;
+import com.github.scribejava.core.extractors.TokenExtractor;
+import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.github.scribejava.core.model.Verb;
+
+/**
+ * 用于定义获取微信返回的CODE与ACCESS_TOKEN
+ */
 
 public class WeiXinApi20 extends DefaultApi20 {
 
-	private static final String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/qrconnect";
-	private static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
+	public static final String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/qrconnect";
+	public static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
 
 	protected WeiXinApi20() {
 	}
@@ -25,18 +31,28 @@ public class WeiXinApi20 extends DefaultApi20 {
 	}
 
 	@Override
+	public Verb getAccessTokenVerb() {
+		return Verb.GET;
+	}
+
+	@Override
 	public String getAccessTokenEndpoint() {
 		return ACCESS_TOKEN_URL;
 	}
-	
+
 	@Override
 	protected String getAuthorizationBaseUrl() {
 		return AUTHORIZE_URL;
 	}
-	
+
 	@Override
-	public OAuth20Service createService(OAuthConfig config) {
-		return new ExtOAuth20Service(this, config);
+	public TokenExtractor<OAuth2AccessToken> getAccessTokenExtractor() {
+		return OAuth2AccessTokenExtractor.instance();
 	}
+
+	@Override
+    public OAuth2SignatureType getSignatureType() {
+    	return OAuth2SignatureType.BEARER_URI_QUERY_PARAMETER;
+    }
 
 }
