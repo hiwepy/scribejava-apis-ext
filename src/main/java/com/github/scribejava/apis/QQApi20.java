@@ -3,7 +3,7 @@
  */
 package com.github.scribejava.apis;
 
-import com.github.scribejava.apis.service.ExtOAuth20Service;
+import com.github.scribejava.apis.service.QQOAuth20ServiceImpl;
 import com.github.scribejava.core.builder.api.DefaultApi20;
 import com.github.scribejava.core.extractors.OAuth2AccessTokenExtractor;
 import com.github.scribejava.core.extractors.TokenExtractor;
@@ -20,13 +20,13 @@ public class QQApi20 extends DefaultApi20 {
     protected QQApi20() {
     }
 
-    private static class InstanceHolder {
-        private static final QQApi20 INSTANCE = new QQApi20();
-    }
+	private static class InstanceHolder {
+		private static final QQApi20 INSTANCE = new QQApi20();
+	}
 
-    public static QQApi20 instance() {
-        return InstanceHolder.INSTANCE;
-    }
+	public static QQApi20 instance() {
+		return InstanceHolder.INSTANCE;
+	}
 
     @Override
     public Verb getAccessTokenVerb() {
@@ -50,7 +50,7 @@ public class QQApi20 extends DefaultApi20 {
     
     @Override
     public OAuth20Service createService(OAuthConfig config) {
-        return new ExtOAuth20Service(this, config);
+        return new QQOAuth20ServiceImpl(this, config);
     }
 
 	

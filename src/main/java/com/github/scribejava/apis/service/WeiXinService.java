@@ -30,7 +30,7 @@ public class WeiXinService {
     private OAuth20Service oauthService; // 访问 WeiBo 服务的 service
     public WeiXinService() {
         // 创建访问 WeiBo 服务的 service
-        oauthService = new ServiceBuilder(null).apiKey(apiKey).apiSecret(apiSecret)
+        oauthService = new ServiceBuilder().apiKey(apiKey).apiSecret(apiSecret)
                 .scope(scope).callback(callbackUrl).build(SinaWeiboApi20.instance());
     }
     /**
@@ -93,7 +93,7 @@ public class WeiXinService {
      */
     public Response request(OAuth20Service service, String accessToken, String url) {
         OAuth2AccessToken token = new OAuth2AccessToken(accessToken);
-        OAuthRequest oauthRequest = new OAuthRequest(Verb.GET, url);
+        OAuthRequest oauthRequest = new OAuthRequest(Verb.GET, url, null);
         service.signRequest(token, oauthRequest); // 会把 accessToken 添加到请求中，GET 请求即添加到 URL 上
         /*Response oauthResponse = oauthRequest.send();
         return oauthResponse;*/

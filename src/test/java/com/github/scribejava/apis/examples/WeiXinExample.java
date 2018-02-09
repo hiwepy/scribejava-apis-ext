@@ -14,7 +14,7 @@ public class WeiXinExample {
 
 		final String apiKey = "x";
 		final String apiSecret = "x ";
-		final OAuth20Service service = new ServiceBuilder(null).apiKey(apiKey).apiSecret(apiSecret)
+		final OAuth20Service service = new ServiceBuilder().apiKey(apiKey).apiSecret(apiSecret)
 				.callback("url").state("xxxx").scope("snsapi_login")
 				.build(WeiXinApi20.instance());
 		System.out.println(service.getAuthorizationUrl());

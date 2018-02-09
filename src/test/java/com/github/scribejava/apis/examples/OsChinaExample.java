@@ -11,7 +11,7 @@ public class OsChinaExample {
 
 	public static void main(String[] args) {
 
-		final OAuth20Service oschina = new ServiceBuilder(null).apiKey("CTJlkYcnBaZCsi4GGgUk")
+		final OAuth20Service oschina = new ServiceBuilder().apiKey("CTJlkYcnBaZCsi4GGgUk")
 				.apiSecret("TlKrmPCKImAKEzk1ORZtdwooJKDIgXrF").callback("http://www.yichisancun.com/oschinalogin.htm")
 				.responseType("code").build(OschinaApi20.instance());
 		System.out.println(oschina.getAuthorizationUrl());

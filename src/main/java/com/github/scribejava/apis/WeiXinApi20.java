@@ -3,7 +3,7 @@
  */
 package com.github.scribejava.apis;
 
-import com.github.scribejava.apis.service.ExtOAuth20Service;
+import com.github.scribejava.apis.service.WeiXinOAuth20ServiceImpl;
 import com.github.scribejava.core.builder.api.DefaultApi20;
 import com.github.scribejava.core.extractors.OAuth2AccessTokenExtractor;
 import com.github.scribejava.core.extractors.TokenExtractor;
@@ -50,7 +50,7 @@ public class WeiXinApi20 extends DefaultApi20 {
 
 	@Override
 	public OAuth20Service createService(OAuthConfig config) {
-		return new ExtOAuth20Service(this, config);
+		return new WeiXinOAuth20ServiceImpl(this, config);
 	}
 
 }
