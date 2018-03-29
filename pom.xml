@@ -5,8 +5,48 @@
 	<groupId>com.github.vindell</groupId>
 	<artifactId>scribejava-apis-ext</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Extend For scribejava-apis</description>
+   	<url>https://github.com/vindell/${project.artifactId}</url>
 	<packaging>jar</packaging>
+	
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
 
+	<scm>
+		<connection>scm:git:https:github.com/vindell/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https:github.com/vindell/${project.artifactId}.git</developerConnection>
+		<url>https:github.com/vindell/${project.artifactId}</url>
+		<tag>${project.artifactId}</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>vindell</name>
+			<email>hnxyhcwdl1003@163.com</email>
+			<roles>
+	            <role>developer</role>
+	        </roles>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<name>Maven Central Staging Repository</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<scribejava.version>5.3.0</scribejava.version>
