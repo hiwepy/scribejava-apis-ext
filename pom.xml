@@ -385,7 +385,7 @@
         <maven-surefire-plugin.vertsion>2.21.0</maven-surefire-plugin.vertsion>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
-		<scribejava.version>5.5.0</scribejava.version>
+		<scribejava.version>5.6.0</scribejava.version>
 	</properties>
 	
 	<dependencies>
