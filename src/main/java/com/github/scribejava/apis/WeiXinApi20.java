@@ -4,7 +4,6 @@
 package com.github.scribejava.apis;
 
 import com.github.scribejava.core.builder.api.DefaultApi20;
-import com.github.scribejava.core.builder.api.OAuth2SignatureType;
 import com.github.scribejava.core.extractors.OAuth2AccessTokenExtractor;
 import com.github.scribejava.core.extractors.TokenExtractor;
 import com.github.scribejava.core.model.OAuth2AccessToken;
@@ -13,7 +12,6 @@ import com.github.scribejava.core.model.Verb;
 /**
  * 用于定义获取微信返回的CODE与ACCESS_TOKEN
  */
-
 public class WeiXinApi20 extends DefaultApi20 {
 
 	public static final String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/qrconnect";
@@ -49,10 +47,5 @@ public class WeiXinApi20 extends DefaultApi20 {
 	public TokenExtractor<OAuth2AccessToken> getAccessTokenExtractor() {
 		return OAuth2AccessTokenExtractor.instance();
 	}
-
-	@Override
-    public OAuth2SignatureType getSignatureType() {
-    	return OAuth2SignatureType.BEARER_URI_QUERY_PARAMETER;
-    }
 
 }
