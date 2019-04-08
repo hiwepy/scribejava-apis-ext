@@ -1,7 +1,7 @@
 /*
  * 版权所有.(c)2008-2018. 极蚁网络工作室 (http://jeebiz.net).
  */
-package com.github.scribejava.apis.service;
+package com.github.scribejava.apis.examples;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -29,7 +29,7 @@ public class QQOAuthService {
     public QQOAuthService() {
         // 创建访问 QQ 服务的 service
         oauthService = new ServiceBuilder(null).apiKey(apiKey).apiSecret(apiSecret)
-                .scope(scope).callback(callbackUrl).build(QQApi20.instance());
+                .defaultScope(scope).callback(callbackUrl).build(QQApi20.instance());
     }
     /**
      * 取得 QQ 登陆页面的 URL，例如

@@ -368,7 +368,7 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<fastjson.version>1.2.51</fastjson.version>
+		<fastjson.version>1.2.56</fastjson.version>
 		<java.version>1.8</java.version>
 		<maven.version>3.0</maven.version>
         <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
@@ -378,14 +378,14 @@
         <maven-enforcer-plugin.version>3.0.0-M1</maven-enforcer-plugin.version>
        	<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
-        <maven-surefire-plugin.vertsion>2.21.0</maven-surefire-plugin.vertsion>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-surefire-plugin.vertsion>2.22.1</maven-surefire-plugin.vertsion>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
-		<scribejava.version>5.6.0</scribejava.version>
+		<scribejava.version>6.5.1</scribejava.version>
 	</properties>
 	
 	<dependencies>
@@ -416,19 +416,19 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.github.scribejava/scribejava-httpclient-ahc -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.github.scribejava</groupId>
 			<artifactId>scribejava-httpclient-ahc</artifactId>
 			<version>${scribejava.version}</version>
 			<scope>test</scope>
-		</dependency> -->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.github.scribejava/scribejava-httpclient-ning -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.github.scribejava</groupId>
 			<artifactId>scribejava-httpclient-ning</artifactId>
 			<version>${scribejava.version}</version>
 			<scope>test</scope>
-		</dependency> -->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.github.scribejava/scribejava-httpclient-okhttp -->
 		<dependency>
 			<groupId>com.github.scribejava</groupId>
