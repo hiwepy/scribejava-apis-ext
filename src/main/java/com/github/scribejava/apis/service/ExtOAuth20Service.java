@@ -3,6 +3,8 @@
  */
 package com.github.scribejava.apis.service;
 
+import java.io.OutputStream;
+
 import com.github.scribejava.core.builder.api.DefaultApi20;
 import com.github.scribejava.core.httpclient.HttpClient;
 import com.github.scribejava.core.httpclient.HttpClientConfig;
@@ -13,8 +15,9 @@ import com.github.scribejava.core.oauth.OAuth20Service;
 public class ExtOAuth20Service extends OAuth20Service {
 
 	public ExtOAuth20Service(DefaultApi20 api, String apiKey, String apiSecret, String callback, String defaultScope,
-			String responseType, String userAgent, HttpClientConfig httpClientConfig, HttpClient httpClient) {
-		super(api, apiKey, apiSecret, callback, defaultScope, responseType, userAgent, httpClientConfig, httpClient);
+            String responseType, OutputStream debugStream, String userAgent, HttpClientConfig httpClientConfig,
+            HttpClient httpClient) {
+		super(api, apiKey, apiSecret, callback, defaultScope, responseType, debugStream, userAgent, httpClientConfig, httpClient);
 	}
 
 	@Override
